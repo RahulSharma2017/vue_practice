@@ -4,14 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDsDINm_zAc_oNiP_3NAU3rkdbarHSqLP8",
-  authDomain: "hatacha-abf0b.firebaseapp.com",
-  databaseURL: "https://hatacha-abf0b-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "hatacha-abf0b",
-  storageBucket: "hatacha-abf0b.firebasestorage.app",
-  messagingSenderId: "234866526571",
-  appId: "1:234866526571:web:50b161863323a0bf27642e",
-  measurementId: "G-V4N5T8N2XE"
+  apiKey: "AIzaSyByn0qTWYuebEmEIdsrs-IHP4ZL2P6u1GA",
+  authDomain: "hatacha-670db.firebaseapp.com",
+  projectId: "hatacha-670db",
+  storageBucket: "hatacha-670db.firebasestorage.app",
+  messagingSenderId: "291308678549",
+  appId: "1:291308678549:web:a0b0855997ff8e7de0da9c",
+  measurementId: "G-75KGJ94RKC"
 };
 
 const app = initializeApp(firebaseConfig);
