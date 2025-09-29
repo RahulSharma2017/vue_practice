@@ -10,6 +10,7 @@ const title = ref("");
 const date = ref("");
 const events = ref([])
 const router = useRouter();
+let schedulesRef;
 
 const addSchedule = async() => {
     if(!title.value || !date.value) return;
@@ -33,14 +34,15 @@ onMounted(() =>{
 
     const q = query(schedulesRef, orderBy("date"));
     //Snapshot is for collection multiple docs and docSnap is for a single doc
-    onSnapshot(q,(snapshot)=>{
-        events.value= snapshot.docs.map((doc)=>{
-            title = doc.data().title,
-            date = doc.data().date
-        }
-    )
-    })
-})
+    onSnapshot(q, (snapshot) => {
+      events.value = snapshot.docs.map((doc) => {
+        return {
+        title: doc.data().title,
+        start: doc.data().date, // FullCalendar expects "start"
+    };
+  });
+});
+});
 </script>
 
 <template>

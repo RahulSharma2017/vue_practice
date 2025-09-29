@@ -13,12 +13,12 @@ const router = useRouter();
 const handleLogin = async () => {
     try{
         if(isLogin){
-        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email.value, password.value);
         alert("Logged In!")
         router.push("/Dashboard")
         }
         else{
-            const userCred = await createUserWithEmailAndPassword(auth, email, password);
+            const userCred = await createUserWithEmailAndPassword(auth, email.value, password.value);
             await setDoc(doc(db,"users", userCred.user.uid) ,{
                 email : email.value,
                 createdAt: new Date()

@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 
-import Auth from "./components/auth.vue";
+import Login from "./components/login.vue";
 
 
 const user = ref(null);
@@ -13,7 +13,7 @@ const user = ref(null);
 <template>
   <div>
     <h1>My Firebase App</h1>
-    <Auth />
+    <Login />
  
   </div>
 </template>
