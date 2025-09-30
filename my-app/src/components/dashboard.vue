@@ -39,7 +39,7 @@ const updateName = async ()=> {
 <template>
     <div>
         <h2>Hey {{userData.email}}</h2>
-        <h3>Created at{{userData.createdAt.toDate().toDateString()}}</h3>
+        <h3 v-if="userData.createdAt">Created at: {{userData.createdAt.toDate().toDateString()}}</h3>
         <input v-model="newName" type="name" placeholder="Enter your Name"/>
         <button @click="updateName">Add</button>
     </div>

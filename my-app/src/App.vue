@@ -1,19 +1,21 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 
-import Login from "./components/login.vue";
-
-
 const user = ref(null);
 
+onMounted(() => {
+  onAuthStateChanged(auth, (u) => {
+    user.value = u;
+  });
+});
 </script>
 
 <template>
-  <div>
+  <div id="app">
     <h1>My Firebase App</h1>
-    <Login />
- 
+    <p v-if="user">Logged in as: {{ user.email }}</p>
+    <router-view />
   </div>
 </template>

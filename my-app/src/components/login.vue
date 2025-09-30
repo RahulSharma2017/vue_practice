@@ -12,9 +12,10 @@ const router = useRouter();
 
 const handleLogin = async () => {
     try{
-        if(isLogin){
-        await signInWithEmailAndPassword(auth, email.value, password.value);
+        if(isLogin.value){
+        const userCred = await signInWithEmailAndPassword(auth, email.value, password.value);
         alert("Logged In!")
+        console.log(router.getRoutes())
         router.push("/Dashboard")
         }
         else{
@@ -24,12 +25,16 @@ const handleLogin = async () => {
                 createdAt: new Date()
             })
             alert("New Account created!")
+            console.log(router.getRoutes())
             router.push("/Dashboard")
 
         }
     } catch(err){
         alert(err.message);
     }
+};
+const logout = async () => {
+   signOut(userCred);
 }
 </script>
 
@@ -43,4 +48,7 @@ const handleLogin = async () => {
             <p @click="isLogin = !isLogin">{{isLogin ? "NewHere? Register": "Bitch login"}}</p>
         </div>
     </div>
+    <hr>
+    <button @click="logout">logout</button>
+    </hr>
 </template>
